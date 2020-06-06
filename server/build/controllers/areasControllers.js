@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 const joi_1 = __importDefault(require("joi"));
 class AreasControllers {
     list(req, res) {
-        database_1.default.query('SELECT * FROM areas;').then((rows) => {
+        database_1.default.query('SELECT * FROM areas order by nombre;').then((rows) => {
             res.json(rows);
         });
         //res.json(games);
@@ -32,7 +32,7 @@ class AreasControllers {
     create(req, res) {
         const schema = {
             nombre: joi_1.default.string().required().max(50),
-            lider: joi_1.default.string().min(2).max(7).required(),
+            lider: joi_1.default.number().integer().required(),
             estado: joi_1.default.boolean()
         };
         joi_1.default.validate(req.body, schema, (err, result) => {
@@ -46,7 +46,7 @@ class AreasControllers {
                 });
             }
             console.log(result);
-            res.send({ status: 'success', message: 'Area Saved' });
+            res.send([{ status: 'success', message: 'Area Saved' }]);
         });
     }
     update(req, res) {

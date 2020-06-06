@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-5">
+        <div class="card mt-4">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre del Area</label>
+                        <input type="text" class="form-control" [(ngModel)]="area.nombre" name="nombre" autofocus="true">
+                        <small id="emailHelp" class="form-text text-muted">Describe the Area name.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Lider</label>
+                        <input type="number" class="form-control" max="7" [(ngModel)]="area.lider" name="lider">
+                        <small id="emailHelp" class="form-text text-muted">Lider to the Area.</small>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" [(ngModel)]="area.estado " name="estado">
+                        <label class="form-check-label" for="exampleCheck1">Active</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="edit ? updateArea(area.codigo) : saveArea()">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card text-center mt-4" style="width: 100%">
+            <div class="card-header d-flex justify-content-between align-item-center">
+                {{area.nombre == '' ? 'Write Someting Name' : area.nombre }}
+                <button class="btn btn-danger">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="card-body">
+                <img src="../../../assets/images/user.png" style="width: 8rem;" class="card-img-top" alt="user">
+                <!-- <h6 class="card-subtitle mb-2 "></h6> -->
+                <p class="card-text text-muted">Identificacion: {{area.lider == null ? '00000' : area.lider}}</p>
+                <h6 class="card-subtitle mb-2 "> {{ area.estado == 1 ? true : area.estado}}</h6>
+    
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-4 float-right pt-4">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="alert.show">
+            Hola!<strong> {{ alert.message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>

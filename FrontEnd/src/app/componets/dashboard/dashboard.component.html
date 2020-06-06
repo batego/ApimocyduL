@@ -1,0 +1,63 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <table class="table ">
+                <caption>Cantidad de usuarios Activos</caption>
+                <thead class="thead-dark">
+                  <tr>            
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Cantidad total de usuarios activos:</th>
+                    <td>{{totalUserActive}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-md-3">
+            <table class="table ">
+                <caption>Cantidad de usuarios Inactivos</caption>
+                <thead class="thead-dark">
+                  <tr>            
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Cantidad total de usuarios Inactivos:</th>
+                    <td>{{totalUserinactive}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+        <div class="col-md-4">
+            <table class="table ">
+                <caption>Cantidad de usuarios por área</caption>
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>            
+                    <th scope="col">Area</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let data of totaluserByArea; index as i">
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ data.nombre }}</td>
+                    <td>{{ data.total }}</td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+        </div> 
+    </div>
+</div>
+
+
+

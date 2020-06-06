@@ -6,7 +6,7 @@ class AreasControllers {
 
     public list(req: Request, res: Response) {
 
-        poll.query('SELECT * FROM areas;').then((rows) => {
+        poll.query('SELECT * FROM areas order by nombre;').then((rows) => {
             res.json(rows);
         });
         //res.json(games);
@@ -24,7 +24,7 @@ class AreasControllers {
 
         const schema = {
             nombre: Joi.string().required().max(50),
-            lider: Joi.string().min(2).max(7).required(),
+            lider: Joi.number().integer().required(),
             estado: Joi.boolean()
         };
 
@@ -39,7 +39,7 @@ class AreasControllers {
             }
 
             console.log(result);
-            res.send({ status: 'success', message: 'Area Saved' });
+            res.send([{ status: 'success', message: 'Area Saved' }]);
 
         });
     }

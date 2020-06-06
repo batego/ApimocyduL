@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const areasRoutes_1 = __importDefault(require("./routes/areasRoutes"));
 const usuariosRoutes_1 = __importDefault(require("./routes/usuariosRoutes"));
+const dashboardRoutes_1 = __importDefault(require("./routes/dashboardRoutes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -26,6 +27,7 @@ class Server {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/areas/', areasRoutes_1.default);
         this.app.use('/api/usuarios/', usuariosRoutes_1.default);
+        this.app.use('/api/dashboard/', dashboardRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

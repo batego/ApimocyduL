@@ -1,0 +1,25 @@
+<div class="col-md-4  pt-4" *ngFor="let user of users">
+    <div class="card text-center" style="width: 100%">
+        <div class="card-header d-flex justify-content-between align-item-center">
+            {{ user.nombres}} {{user.apellidos}}
+            <button class="btn btn-danger" (click)="deleteUser(user.numero_documento)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="card-body">
+            <img src="../../../assets/images/user.png" style="width: 8rem;" class="card-img-top" alt="user">
+            <!-- <h6 class="card-subtitle mb-2 "></h6> -->
+           <div class="text-left">
+                <br>
+               <footer class="blockquote-footer">Id: <strong> {{user.numero_documento}}</strong></footer>
+               <footer class="blockquote-footer">Fecha Nacimiento: <strong>{{user.fecha_nacimiento | date:'MM/dd/yy'}}</strong></footer>
+               <footer class="blockquote-footer">Email: <strong>{{user.email}}</strong></footer>
+               <footer class="blockquote-footer">Salario: <strong>{{user.salario}}</strong></footer>
+               <footer class="blockquote-footer">Estado: <strong> {{user.estado == 1 ? 'Activo' : 'Inactivo'}}</strong></footer>
+
+           </div>
+            <a class="btn btn-primary btn-block" [routerLink]="['/usuarios/edit', user.numero_documento]">Edit</a>
+
+        </div>
+    </div>
+</div>

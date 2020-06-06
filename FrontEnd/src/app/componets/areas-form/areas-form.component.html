@@ -1,0 +1,18 @@
+
+    <div class="col-md-4  pt-4" *ngFor="let area of areas">
+        <div class="card text-center" style="width: 100%">
+            <div class="card-header d-flex justify-content-between align-item-center">
+                {{area.nombre}}
+                <button class="btn btn-danger" (click)="deleteArea(area.codigo)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="card-body">
+                <img src="../../../assets/images/user.png" style="width: 8rem;" class="card-img-top" alt="user">
+                <!-- <h6 class="card-subtitle mb-2 "></h6> -->
+                <p class="card-text text-muted">Identificacion: {{area.lider}}</p>
+                <a class="btn btn-primary btn-block" [routerLink]="['/areas/edit', area.codigo]" >Edit</a>
+
+            </div>
+        </div>
+    </div>

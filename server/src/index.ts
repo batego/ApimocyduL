@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import indexRoutes from './routes/indexRoutes';
 import areasRoutes from './routes/areasRoutes';
 import usuariosRoutes  from './routes/usuariosRoutes';
+import dashboardRoutes  from './routes/dashboardRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -28,6 +29,7 @@ class Server {
         this.app.use('/', indexRoutes);
         this.app.use('/api/areas/', areasRoutes);
         this.app.use('/api/usuarios/', usuariosRoutes);
+        this.app.use('/api/dashboard/', dashboardRoutes);
     }
 
     start(): void {
