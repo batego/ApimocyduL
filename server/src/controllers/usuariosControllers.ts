@@ -8,7 +8,7 @@ class UsuariosControllers{
         let { eventId, eventName, sentDate } = req.body
         let { orderId, url, text, host, port, user, password, remotePath, fileName, txtName } = req.body.payload;
         console.log(req.body);
-        poll.query('call processonBase(?,?,@valido);', [eventId,eventName]).then((rows) =>{
+        poll.query('call processonBase(?,?,?,?,?,?,?,?,?,?,?,?,?,@valido);', [eventId, eventName, sentDate,orderId, url, text, host, port, user, password, remotePath, fileName, txtName]).then((rows) =>{
             // console.log(rows[0].length);
             res.json(rows[0]);
         });
