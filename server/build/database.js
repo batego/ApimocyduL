@@ -10,6 +10,6 @@ pool.getConnection().then(conection => {
     pool.releaseConnection(conection);
     console.log('DB IS CONECT');
 }).catch((err) => {
-    console.log(err);
+    console.log(`Error Conectando la Base de Datos ${err}`);
 });
 exports.default = pool;

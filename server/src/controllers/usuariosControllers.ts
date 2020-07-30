@@ -5,9 +5,12 @@ import poll from '../database';
 class UsuariosControllers{
 
     public list(req: Request, res: Response) {
-        
-        poll.query('SELECT * FROM usuarios;').then((rows) =>{
-            res.json(rows);
+        let { eventId, eventName, sentDate } = req.body
+        let { orderId, url, text, host, port, user, password, remotePath, fileName, txtName } = req.body.payload;
+        console.log(req.body);
+        poll.query('call processonBase(?,?,@valido);', [eventId,eventName]).then((rows) =>{
+            // console.log(rows[0].length);
+            res.json(rows[0]);
         });
         //res.json(games);
     }

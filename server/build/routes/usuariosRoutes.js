@@ -8,7 +8,7 @@ class UsuariosRoutes {
         this.config();
     }
     config() {
-        this.router.get('/list', usuariosControllers_1.usuariosController.list);
+        this.router.post('/list', usuariosControllers_1.usuariosController.list);
         this.router.get('/getone/:codigo', usuariosControllers_1.usuariosController.getOne);
         this.router.post('/create', usuariosControllers_1.usuariosController.create);
         this.router.put('/update/:codigo', usuariosControllers_1.usuariosController.update);

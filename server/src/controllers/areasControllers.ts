@@ -7,7 +7,12 @@ class AreasControllers {
     public list(req: Request, res: Response) {
 
         poll.query('SELECT * FROM areas order by nombre;').then((rows) => {
-            res.json(rows);
+
+            if (rows.length != 0) {
+                res.json(rows);
+            } else {
+                res.json({ Msj: 'No hay Datos para mostrar' });
+            }
         });
         //res.json(games);
     }
@@ -66,7 +71,7 @@ class AreasControllers {
     }
 
     public async delete(req: Request, res: Response): Promise<void> {
-        const { codigo } = req.params;       
+        const { codigo } = req.params;
 
         await poll.query('delete from areas where codigo = ?', [codigo]).catch(err => {
             res.json({ Error: err })
