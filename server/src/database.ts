@@ -5,7 +5,7 @@ const pool= mysql.createPool(keys.database);
 
 pool.getConnection().then(conection =>{
     pool.releaseConnection(conection);
-    console.log('DB IS CONECT');
+    console.log('MySql is Connect Now..!');
 }).catch((err)=>{
     console.log(`Error Conectando la Base de Datos ${err}`);
 });
