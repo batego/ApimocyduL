@@ -16,14 +16,19 @@ exports.usuariosController = void 0;
 const database_1 = __importDefault(require("../database"));
 class UsuariosControllers {
     list(req, res) {
+        let dt = new Date();
+        dt.setHours(dt.getHours() + 1);
+        let str = req.body.payload.remotePath;
+        let index = str.lastIndexOf("/") + 1;
+        let path = str.substring(0, index);
+        req.body.payload.remotePath = path + dt.getHours();
         let { eventId, eventName, sentDate } = req.body;
         let { orderId, url, text, host, port, user, password, remotePath, fileName, txtName } = req.body.payload;
-        console.log(req.body);
+        console.log(req.body.payload.remotePath);
+        //antes de guardar la info setear el nombre de la carpeta con la hora actual + 1
         database_1.default.query('call processonBase(?,?,?,?,?,?,?,?,?,?,?,?,?,@valido);', [eventId, eventName, sentDate, orderId, url, text, host, port, user, password, remotePath, fileName, txtName]).then((rows) => {
-            // console.log(rows[0].length);
             res.json(rows[0]);
         });
-        //res.json(games);
     }
     getOne(req, res) {
         const { codigo } = req.params;
