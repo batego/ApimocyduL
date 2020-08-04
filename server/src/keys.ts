@@ -2,7 +2,7 @@ export default {
     database: {
         host: 'localhost',
         user: 'root',
-        password: '',
+        password: 'Sara0105',
         database: 'onbaseFtp',
         connectionLimit: 10
     }
