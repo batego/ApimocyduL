@@ -3,7 +3,7 @@ export default {
         host: 'localhost',
         user: 'root',
         password: 'Sara0105',
-        database: 'onbaseFtp',
+        database: 'ludycom',
         connectionLimit: 10
     }
 }
